@@ -4,6 +4,10 @@ fun main(args: Array<String>) {
     println("Hello World")
     feedTheFish()
 
+    print("\nEnter your birthday: ")
+    val birthday = readLine()?.toIntOrNull() ?: 1
+    println(birthday.rem(4))
+
     var bubble = 0
     while (bubble < 50){
         bubble++
@@ -66,4 +70,12 @@ fun fishFood(day: String):String {
             return "fasting"
         }
     }
+}
+
+fun canAddFish(tankSize: Double,
+                currentFish: List<Int>,
+                fishSize: Int = 2,
+                hasDecorations: Boolean = true): Boolean {
+
+    return (tankSize * if (hasDecorations) 0.8 else 1.0) >= currentFish.sum() + fishSize
 }
